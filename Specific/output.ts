@@ -1,0 +1,1 @@
+console.warn("Output Console Successfully");

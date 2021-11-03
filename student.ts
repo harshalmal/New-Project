@@ -1,0 +1,1 @@
+console.warn("Student Console Successfully");
