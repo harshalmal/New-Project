@@ -1,24 +1,38 @@
 const webpack = require('webpack');
 const path = require ('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-
+  
   entry: {
-    'app': './src/main.ts'
+    app: 'src/app.ts',
+    vendor: 'src/vendor.ts'
   },
-
+  
   output: {
-    filename: 'main.js'
+    filename: 'main.ts'
   },
-
-  rules: 
+ 
+  rules: [
     {
       test: /\.css$/,
       loaders: 'style-loader!css-loader'
     },
 
+    {
+      test: /\.html$/,
+      loader: 'html-loader'
+    }
+  ],
+
   plugins: [
-      new webpack.optimize.UglifyJsPlugin()
-    ]  
+      new webpack.optimize.CommonsChunkPlugin({
+        name: ['app', 'vendor']
+      }),
+   
+      new HtmlWebpackPlugin({
+        template: 'src/index.html'
+      })
+    ]
     
 };
