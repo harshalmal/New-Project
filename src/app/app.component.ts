@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import {} from '../environments/environment';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,8 @@ import {} from '../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Initial';
-
+  title = 'App Root Content';
+  envName = environment.envName;
 
   }
 

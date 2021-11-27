@@ -45,5 +45,5 @@ testem.log
 Thumbs.db
 
 # self made file and folder
-/general
+
 *.har
