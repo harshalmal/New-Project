@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   
+  mode : 'development',
+  
   entry: {
     app: 'src/app.ts',
     vendor: 'src/vendor.ts'
