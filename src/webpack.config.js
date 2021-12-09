@@ -1,40 +1,38 @@
-const webpack = require('webpack');
-const path = require ('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = {
-  
-  mode : 'development',
-  
   entry: {
-    app: 'src/app.ts',
-    vendor: 'src/vendor.ts'
+    'vendor': './src/vendor.ts',
+    'app': './src/main.ts'
   },
-  
-  output: {
-    filename: 'main.ts'
-  },
- 
-  rules: [
-    {
-      test: /\.css$/,
-      loaders: 'style-loader!css-loader'
-    },
 
-    {
-      test: /\.html$/,
-      loader: 'html-loader'
-    }
-  ],
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
+
+  output: {
+    path: path.join(__dirname, "dist"),
+    publicPath: "/dist/",
+    filename: "[name].bundle.js"
+  },
+
+  module: {
+    rules: 
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
+      },
+     
+  },
 
   plugins: [
-      new webpack.optimize.CommonsChunkPlugin({
-        name: ['app', 'vendor']
-      }),
-   
-      new HtmlWebpackPlugin({
-        template: 'src/index.html'
-      })
-    ]
-    
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['app', 'vendor']
+    }),
+
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    })
+  ]
 };

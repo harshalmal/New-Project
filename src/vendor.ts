@@ -1,2 +1,4 @@
-import { bootstrap } from 'bootstrap';
-import { jquery } from 'jquery';
+import '@angular/platform-browser';
+import '@angular/platform-browser-dynamic';
+import '@angular/core';
+import '@angular/common';
